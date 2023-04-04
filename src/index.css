@@ -1,3 +1,8 @@
+*{
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +15,169 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.container1{
+  display: flex;
+  width: 100%;
+  /* margin: 0 auto;
+  justify-content: center;
+  align-items: center; */
+}
+.container1 .contA{
+  width: 60%;
+  
+}
+.contA .jar{
+  width: 65%;
+  margin: 0px auto;
+}
+
+
+.contA .jar .navcont{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 5px auto;
+}
+.navcont .sitelogs{
+  /* display: inline-block; */
+  margin-top: 5px;
+}
+
+.navcont a{
+  text-decoration: none;
+  color: rgb(125 123 119);
+}
+.container1 .contA .jar .hand{
+  margin: 150px auto;
+  /* width: 50%; */
+}
+.container1 .contA .jar .hand form span{
+  display: block;
+  margin: 10px 0;
+}
+.container1 .contA .jar .hand form input{
+  display: block;
+  margin: 10px 0;
+  background-color: rgb(216 209 200 / 34%);
+  border: none;
+  padding: 10px;
+  width: 100%;
+}
+.container1 .contA .jar .hand form button{
+  padding: 10px;
+  color: white;
+  background-color: black;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0px;
+
+}
+.container1 .contA .jar .hand form a{
+  color: #53a0b5;
+  font-weight: 700;
+}
+
+.container1 .contB{
+  width: 40%;
+  background-color: rgb(216, 209, 200);
+
+}
+.contB .textyb{
+  width: 60%;
+  margin: 195px auto;
+  
+}
+.contB .textyb h4{
+  font-size: 20px;
+  line-height: 33px;
+}
+.contB .textyb .userT{
+  display: flex;
+  margin: 20px 0px 20px 0px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+.contB .textyb .userT .userTn p{
+  color: rgba(5, 4, 4, 0.534);
+}
+
+@media  screen and (max-width: 900px) {
+  .contA .jar {
+    width: 75%;
+  }
+  .contB .textyb {
+    width: 70%;
+  }
+}
+
+@media  screen and (max-width: 761px) {
+  .container1{
+    flex-direction: column;
+  }
+  .container1 .contA{
+    width: 100%;
+  }
+  .container1 .contB{
+    width: 100%;
+  }
+  .contA .jar {
+    width: 85%;
+  }
+  form{
+    width: 70%;
+  }
+
+  .container1 .contA .jar .hand {
+    margin: 10px 0;
+  }
+  .hand h2 {
+    font-size: 30px;
+    width: 85%;
+  }
+  .contB .textyb{
+    width: 85%;
+    margin: 30px auto;
+  }
+}
+@media  screen and (max-width: 523px) {
+  .hand h2 {
+    font-size: 25px;
+  }
+  .textyb h2{
+    font-size: 20px;
+  }
+ 
+}
+@media  screen and (max-width: 425px) {
+  .contA .jar {
+    width: 90%;
+  }
+  form{
+    width: 100%;
+  }
+  .contB .textyb {
+    width: 90%;
+  }
+  .hand h2 {
+    width: 90%;
+  }
+}
+@media  screen and (max-width: 350px) {
+  .sitelogs{
+    width: 85%;
+  }
+  .bck{
+    font-size: 15px;
+  }
+  .contA .jar {
+    width: 95%;
+  }
+  .contB .textyb {
+    width: 95%;
+  }
+
 }

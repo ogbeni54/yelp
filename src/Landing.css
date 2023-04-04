@@ -1,0 +1,230 @@
+.App {
+    /* text-align: center; */
+  }
+ .App .container{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .contA a .sitelogo{
+    margin: 20px 0px 0px 70px;
+  }
+  .container .contA{
+    width: 60%;
+    height: 100vh;
+  }
+  .container .contB{
+    width: 40%;
+    height: 100vh;
+    background-image: url(' http://localhost:3000/Assets/Hero Image.jpg ');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .text-cont{
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .text-cont .t1{
+    display: flex;
+    gap: 1.0em;
+  
+  }
+  .textyA{
+    margin: 40px 0px 0px 70px;
+  }
+  .textyA .first{
+    width: 69%;
+    font-size: 40px;
+  }
+  .textyA .decrp,.t1{
+    margin: 15px 0px;
+  }
+  .textyA .pat{
+    margin-top: 20px;
+  }
+  /* .container .contB .contI{
+    width: 100%;
+    margin: auto;
+  }
+  .container .contB .contI img{
+    width: 100%;
+  } */
+  .text-cont button{
+    background-color: black;
+    color: white;
+    padding: 15px 10px;
+    border: none;
+    margin-top: 10px;
+  }
+  .sponsor{
+    display: flex;
+    gap: 1.0em;
+  }
+  .sitelogo1{
+    display: none;
+  }
+  
+  @media  screen and (max-width: 852px) {
+    .textyA .first {
+      width: 98%
+    }
+  }
+  
+  @media screen and (max-width: 800px){
+    .textyA{
+      margin: 40px 0px 0px 50px;
+    }
+    .sitelogo {
+      margin: 20px 0px 0px 50px;
+  }
+  }
+  @media screen and (max-width: 768px){
+    .container{
+      flex-direction: column-reverse;
+    }
+    .container .contB{
+      width: 100%;
+      /* height: 70vh; */
+      background-image: url(' http://localhost:3000/Assets/Hero Image (Tablet and Mobile).jpg ');
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .container .contA{
+      width: 100%;
+      margin: 0px auto;
+    }
+    .sitelogo{
+      display: none;
+    }
+    .sitelogo1{
+      display: block;
+      margin: 20px 0px 20px 50px;
+    }
+    .textyA {
+      margin: 0px 0px 0px 50px;
+  }
+  .textyA .first{
+    margin: 20px 0px;
+    width: 69%;
+    font-size: 45px;
+  }
+  .decrp{
+    width: 100%;
+    font-size: 20px;
+  }
+  .t1 p,button{
+    font-size: 20px;
+  }
+  .textyA .pat{
+    font-size: 20px;
+  }
+  .sponsor img{
+    width: 25%;
+  }
+  }
+  @media screen and (max-width: 768px){
+    .textyA .first{
+      font-size: 39px;
+      width: 67%;
+    }
+    .decrp,.t1 p,button,.textyA .pat{
+      font-size: 15px;
+    }
+    .sponsor img{
+      width: 20%;
+    }
+  }
+  @media screen and (max-width: 683px){
+    .textyA .first{
+      width: 76%;
+    }
+  }
+  @media screen and (max-width: 669px){
+    .textyA .first{
+      width: 78%;
+    }  
+    /* .textyA .first{
+      font-size: 35px
+    } */
+  }
+  @media screen and (max-width: 595px){
+    .textyA .first{
+      width: 88%;
+    }
+  }
+  
+  @media screen and (max-width: 535px){
+    .textyA .first{
+      width: 99%;
+    }
+  }
+  
+  @media screen and (max-width: 505px){
+    /* .textyA{
+      margin: 0px auto;
+    } */
+    .textyA .first{
+      width: 95%;
+      font-size: 35px;
+      
+    }
+    
+  }
+  @media screen and (max-width: 451px){
+    .textyA .first{
+      width: 100%;
+    }
+    .sitelogo1{
+      margin: 20px 0px 20px 25px;
+    }
+    .textyA {
+      margin: 0px 0px 0px 25px;
+  }
+  }
+  @media screen and (max-width: 420px){
+    .textyA .first {
+      font-size: 32px;
+      width: 93%;
+  }
+    /* .sitelogo1{
+      margin: 20px 0px 20px 30px;
+    }
+    .textyA {
+      margin: 0px 0px 0px 30px;
+  } */
+  /* .textyA .first {
+    font-size: 30px;
+  } */
+  /* .decrp{
+    width: 100rem;
+    font-size: 14px;
+  } */
+  }
+  @media screen and (max-width: 400px){
+    .textyA .first {
+      font-size: 30px;
+      width: 98%;
+  }
+  }
+  @media screen and (max-width: 359px){
+    .textyA .first {
+      font-size: 27px;
+      width: 99%;
+  }
+  .sitelogo1{
+    margin: 20px 0px 20px 15px;
+  }
+  .textyA {
+    margin: 0px 10px 0px 15px;
+  }
+  .decrp{
+    width: 98%;
+  }
+  .sponsor img {
+    width: 24%;
+  }
+  }
