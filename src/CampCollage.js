@@ -1,41 +1,9 @@
 import React from 'react'
-import './Camplogin.css'
-import { Link } from 'react-router-dom'
 
-export default function Camplogin() {
-    return (
-        <div>
-            <div className='container2'>
-                <div className='nava'>
-                    <div className='nav1'>
-                        <Link to='/'><img src='Assets/Logo.svg' alt='site logo' className='sity' /></Link>
-                        <Link to='/'>Home</Link>
-                    </div>
-                    <div className='nav2'>
-                        <Link to=''>Login</Link>
-                        <Link to=''><button>Create an account</button></Link>
-                    </div>
-                </div>
-                <div className='searchy'>
-                    <div className='salz'>
-                        <div className='salz-cont'>
-                            <div className='maja'>
-                                <h1>Welcome to YelpCamp!</h1>
-                                <p>View our hand-picked campgrounds
-                                    from all over<br/>the world or add your own.
-                                </p>
-                            </div>
-
-                            <form>
-                                <input placeholder='&#128270; Search for camps'></input>
-                                <button>Search</button>
-                            </form>
-                            <Link to=''>Or add your own background </Link>
-                        </div>
-
-                    </div>
-
-                    <div className='camps'>
+export default function CampCollage() {
+  return (
+    <div>
+        <div className='camps'>
                         <div className='contA'>
                             <div className='card'>
                                 <div className='pixcont'>
@@ -115,10 +83,6 @@ export default function Camplogin() {
 
                         </div>
                     </div>
-
-                </div>
-                <Link to='/'><img src='Assets/Logo.svg' alt='site logo' className='sity1' /></Link>
-            </div>
-        </div>
-    )
+    </div>
+  )
 }
