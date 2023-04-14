@@ -1,17 +1,23 @@
 import {React, useState} from 'react'
-import Navi from './Navigation/Navi'
+import './Addnew.css'
+// import Navi from './Navigation/Navi'
 // import './Camplogin.css'
 
 
 import { Link } from 'react-router-dom'
+import Navlogin from '../Navigation/Navlogin';
 
 export default function Addnew() {
     const [campname, setCampname] =useState('');
+    const [image, setImage] =useState('');
+    const [price, setPrice] =useState('');
+    const [descr, setdescr] =useState('');
   return (
     <div>
         <div className='container2'>
-        <Navi/>
+        <Navlogin/>
                 <div className='searchy'>
+                        
                     <form className='ada'>
                         <h2>
                             Add New Campground
@@ -50,8 +56,8 @@ export default function Addnew() {
                       </label>
                       <label>
                           <span>Description</span>
-                          <input
-                              type="text"
+                          <textarea
+                             
                               onChange={(e) => setdescr(e.target.value.trim())}
                               value={descr.toLower}
                               placeholder="The Seven Sisters is the 39th tallest Waterfall

@@ -1,0 +1,52 @@
+.ada{
+    width: 50%;
+    margin: 30px auto;
+    
+}
+.searchy .ada h2{
+    text-align: center;
+    margin: 10px 0;
+}
+.ada label{
+    color: #636262f8;
+    font-weight: 500;
+}
+.ada span{
+    display: block;
+}
+.ada input, .ada textarea{
+    display: block;
+    margin: 10px 0;
+    width: 100%;
+    padding: 20px;
+    background-color: rgb(225, 224, 219);
+    outline: none;
+    border: none;
+}
+.ada button{
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
+@media  screen and (max-width: 769px) {
+    .ada {
+        width: 80%;
+        margin: 30px 0;
+    }
+
+    .searchy .ada h2{
+        text-align: unset;
+    }
+}
+
+@media  screen and (max-width: 426px) {
+    .ada {
+        width: 100%;
+    }
+    .ada input, .ada textarea{
+        padding: 15px 10px;
+    }
+}

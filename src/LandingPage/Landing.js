@@ -26,7 +26,7 @@ export default function Landing() {
                 <img src='Assets/Checkmark.svg' alt='checky' />
                 <p>See locations of all camps.</p>
               </div>
-              <Link to="/Camplogin" className='f_but'>
+              <Link to="/Camplogout" className='f_but'>
                 <button>View Campgrounds</button>
               </Link>
 
