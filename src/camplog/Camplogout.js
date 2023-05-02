@@ -1,17 +1,48 @@
-import {React, useState} from 'react'
+import {React, useState, useEffect} from 'react'
 // import './Camplogin.css'
 import Navi from '../Navigation/Navi';
-import CampCollage from '../CampCollage';
+
 import Pages from '../pages/Pages';
 import { Link } from 'react-router-dom'
+import { campData } from '../firebase/Config';
+import { collection, getDocs } from 'firebase/firestore';
 
-export default function Camplogin({items}) {
+
+    export default function Camplogin() {
+    const [data, setData] = useState(null);
+    const [ispending, setIspending] = useState(false);
+    const [error, setError] = useState(false);
+
     const [searches, setSearches] = useState('');
+    
+    
+    useEffect(() => {
+        const dataz = async () => {
+            await getDocs(collection(campData, "Camp"))
+                .then((querySnapshot) => {
+                    const newData = querySnapshot.docs
+                        .map((doc) => ({ ...doc.data(), id: doc.id }));
+                        // console.log(newData);
+                        setData(newData);                
+                    // console.log(todos, newData);
+                })
+
+            }
+            dataz()
+  
+ 
+        }, []);
+
+    // console.log(data);
+    
+    
     const handleChange = (e) => {
         e.preventDefault();
         setSearches(e.target.value)
     }
+    
 
+    // console.log(data);
 
     return (
         <div>
@@ -44,8 +75,8 @@ export default function Camplogin({items}) {
                        
                            
                         {
-                   items 
-                   .filter((i) => i.Tittle.toLowerCase().includes(searches.toLowerCase()))
+                   data 
+                   .filter((i) => i.Title.toLowerCase().includes(searches.toLowerCase()))
                    .map((result, index) => {
                        return (
                            <div className="contA" key={index}>
@@ -53,7 +84,7 @@ export default function Camplogin({items}) {
                                     <div className='pixcont'>
                                         <img src={result.Image} alt="camping" className='image-camp'/>
                                     </div>
-                                    <h4>{result.Tittle}</h4>
+                                    <h4>{result.Title}</h4>
                                     <p>{result.Description}</p>
 
                                     <Link to='/' className=''>
@@ -78,7 +109,7 @@ export default function Camplogin({items}) {
 
                 </div>
                 <Link to='/'><img src='Assets/Logo.svg' alt='site logo' className='sity1' /></Link>
-            </div>
+                </div>
         </div>
     )
 }

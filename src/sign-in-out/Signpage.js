@@ -1,12 +1,30 @@
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import {  signInWithEmailAndPassword   } from 'firebase/auth';
+import { auth } from '../firebase/Config';
 import './Signpage.css';
 export default function Signpage() {
-    const [uname, setUname] = useState('');
-    const [pword, setPword] = useState('');
+    const navigate = useNavigate();
 
-    const handleSubmit = () => {
-        
+    const [email, setEmail] = useState('');
+    const [pword, setPword] = useState('');
+    // const [email, setEmail] = useState('');
+
+    const onLogin = (e) => {
+        e.preventDefault();
+        signInWithEmailAndPassword(auth, email, pword)
+        .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            navigate("/Camplogin")
+            console.log(user);
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode, errorMessage)
+        });
+       
     }
 
 
@@ -24,15 +42,15 @@ export default function Signpage() {
             </div>
             <div className='hand'>
             <h2>Start exploring camps from all around the world</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={onLogin}>
                  
                       <label>
-                          <span>Username:</span>
+                          <span>Email:</span>
                           <input
                               type="text"
-                              onChange={(e) => setUname(e.target.value.trim())}
-                              value={uname.toLower}
-                              placeholder="johndoe_91"
+                              onChange={(e) => setEmail(e.target.value.trim())}
+                              value={email.toLower}
+                              placeholder="johndoe_91@xxxxxx.com"
                               required
                           />
                       </label>
@@ -40,7 +58,7 @@ export default function Signpage() {
                       <label>
                           <span>Password:</span>
                           <input
-                              type="text"
+                              type="password"
                               onChange={(e) => setPword(e.target.value.trim())}
                               value={pword.toLower}
                               placeholder="Enter Your Password"

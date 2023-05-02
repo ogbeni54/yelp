@@ -1,75 +1,70 @@
-import React from 'react' 
+import { React, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { campData } from '../firebase/Config';
+import { collection, getDocs } from 'firebase/firestore';
 
 
 
+function Pages() {
+    const [data, setData] = useState(null);
+    const [ispending, setIspending] = useState(false);
+    const [error, setError] = useState(false);
 
-function Pages () {
-    const items = [
-        {
-            Image: 'http://localhost:3000/Assets/Camp Images/Compressed Images/Mount Ulap.jpg',
-            Tittle: 'Mount Ulap',
-            Description: "One of the most famous hikes in Benguet Mt Ulap Itogon",
-            button: "View Campground"
-        },
-        {
-            Image: 'http://localhost:3000/Assets/Camp Images/Compressed Images/Calaguas Island.jpg',
-            Tittle: 'Calagus Islands',
-            Description: "A paradise of islands that can rival the white sand beauty of Boracay",
-            button: "View Campground"
-        },
-        {
-            Image: 'http://localhost:3000/Assets/Camp Images/Compressed Images/Onay Beach.jpg',
-            Tittle: 'Onay Beach',
-            Description: "This is one of the best camping sites, beautiful and pristine.",
-            button: "View Campground"
-        },
-        {
-            Image: 'http://localhost:3000/Assets/Camp Images/Compressed Images/Latik Riverside.jpg',
-            Tittle: 'Latik Riverside',
-            Description: "Philippines is one of the most dazzling countries in all Asia.",
-            button: "View Campground"
-        },
-        {
-            Image: 'http://localhost:3000/Assets/Camp Images/Compressed Images/Buloy Springs.jpg',
-            Tittle: 'Buloy Springs',
-            Description: "This is one of the best beach camping sites, beautiful and pristine.",
-            button: "View Campground"
-        },
-        {
-            Image: 'http://localhost:3000/Assets/Camp Images/Compressed Images/Seven Sisters Waterfall.jpg',
-            Tittle: 'Seven Sisters Waterfall',
-            Description: "The Seven Sisters is the 39th tallest waterfall in Norway",
-            button: "View Campground"
-        }
-      ];
+
+    
+
+
+    useEffect(() => {
+        setIspending(true)
+        console.log(campData);
+
+        const data = async () => {
+            await getDocs(collection(campData, "Camp"))
+                .then((querySnapshot) => {
+                    const newData = querySnapshot.docs
+                        .map((doc) => ({ ...doc.data(), id: doc.id }));
+                    // console.log(newData);
+                    setData(newData);                
+                    // console.log(todos, newData);
+                })
+
+            }
+            data()
+
+       
+
+    }, []);
+
+    // console.log(data);
+
+
     return (
         <>
-        <div className="camps">
-            
-            {
-                items
-                .map((val, index) => {
-                    return (
-                        <div className="contA" key={index}>
-                            <div className='card'>
-                                <div  className='pixcont'>
-                                    <img src={val.Image} alt="camping" className='image-camp'/>
-                                </div>
-                                <h4>{val.Tittle}</h4>
-                               <p>{val.Description}</p>
+            {data && <div className="camps">
 
-                               <Link to='/' className='ground-link'>
-                                   <button>{val.button}</button>
-                               </Link>
+                {
+                    data.map((val, index) => {
+                        // console.log(val.Image);
+                        return (
+                            <div className="contA" key={index}>
+                                <div className='card'>
+                                    <div className='pixcont'>
+                                        <img src={val.Image} alt="camping" className='image-camp' />
+                                    </div>
+                                    <h4>{val.Title}</h4>
+                                    <p>{val.Description}</p>
+
+                                    <Link to='/' className='ground-link'>
+                                        <button>{val.button}</button>
+                                    </Link>
+                                </div>
+
+
                             </div>
-                               
-                              
-                           </div>
-                    )
-                })
-            }
-        </div>
+                        )
+                    })
+                }
+            </div>}
         </>
     );
 }

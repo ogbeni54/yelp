@@ -1,10 +1,11 @@
-import {React, useState} from 'react'
-// import './Camplogin.css'
+import {React, useState, useEffect} from 'react'
 import Navlogin from '../Navigation/Navlogin'
-// import Navi from '../Navigation/Navi';
-// import CampCollage from '../CampCollage';
 import Pages from '../pages/Pages';
 import { Link } from 'react-router-dom'
+import {campData} from '../firebase/Config'
+import { collection, getDocs } from 'firebase/firestore';
+import { auth } from '../firebase/Config';
+
 
 export default function CampLogin({items}) {
     const [searches, setSearches] = useState('');
@@ -12,6 +13,32 @@ export default function CampLogin({items}) {
         e.preventDefault();
         setSearches(e.target.value)
     }
+
+    const [data, setData] = useState(null);
+    const [ispending, setIspending] = useState(false);
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        const dataz = async () => {
+            await getDocs(collection(campData, "Camp"))
+                .then((querySnapshot) => {
+                    const newData = querySnapshot.docs
+                        .map((doc) => ({ ...doc.data(), id: doc.id }));
+                        // console.log(newData);
+                        setData(newData);                
+                    // console.log(todos, newData);
+                })
+
+            }
+            dataz()
+ 
+        }, []);
+
+// console.log(auth.currentUser);
+        
+
+    
+    
   return (
     <>
     <div>
@@ -42,13 +69,13 @@ export default function CampLogin({items}) {
 
                     {searches &&  <div className="search-content">
                {
-                   items 
+                   data 
                    .filter((i) => i.Tittle.toLowerCase().includes(searches.toLowerCase()))
                    .map((result, index) => {
                        return (
                            <div className="results" key={index}>
                                <img src={result.Image} alt="camping" className='image-camp'/>
-                               <h4>{result.Tittle}</h4>
+                               <h4>{result.Title}</h4>
                                <p>{result.Description}</p>
 
                                {/* <Link to='/camp-page' className='ground-link'

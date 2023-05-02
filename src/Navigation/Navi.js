@@ -1,5 +1,6 @@
 import {React, useState} from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+
 
 
 export default function Navi() {
@@ -10,6 +11,9 @@ export default function Navi() {
     const handleNav = () => {
         setHarm(!harm)
     }
+
+ 
+   
   return (
     <div>
          <div className='nava'>
