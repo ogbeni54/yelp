@@ -19,52 +19,39 @@ export default function Signpage() {
         if(uname.length == 0) {
             alert('Please enter your username')
         } else {
-
-                await createUserWithEmailAndPassword(auth, email, pword)
-                  .then((userCredential) => {
-                      // Signed in
-                      userCredential.updateProfile({
-                        displayName: "John Doe"
-                      }).then(() => {
-                          console.log("Display name added successfully!" + userCredential.displayName);
-                      }).catch((error) => {
-                          console.error("Error adding display name:", error);
-                      });
-        
-                        //    console.log(user);
-                            navigate("/Signpage")
-        
-                  }).catch((error) => {
-                      const errorCode = error.code;
-                      const errorMessage = error.message;
-                      console.log(errorCode, errorMessage);
-                      // ..
-                  });
-        
-
-                }
-
-
-
-
-
-
-
-        //     const {user} = await createUserWithEmailAndPassword(auth, email, pword)
-        //     console.log(`User ${user.uid} created`)
-        //     await updateProfile(user, {
-        //       displayName: uname
-        //     });
-        //     console.log("User profile updated" + user.displayName)
-        //     navigate("/Signpage")
-        //   }
-
-
+            const {user} = await createUserWithEmailAndPassword(auth, email, pword)
+            console.log(`User ${user.uid} created`)
+            await updateProfile(user, {
+              displayName: uname
+            });
+            console.log("User profile updated" + user.displayName)
+            navigate("/Signpage")
+          }
         }
 
         
        
-    
+    //  await createUserWithEmailAndPassword(auth, email, pword)
+    //       .then((userCredential) => {
+    //           // Signed in
+    //           userCredential.updateProfile({
+    //             displayName: "John Doe"
+    //           }).then(() => {
+    //               console.log("Display name added successfully!" );
+    //           }).catch((error) => {
+    //               console.error("Error adding display name:", error);
+    //           });
+
+    //             //    console.log(user);
+    //                 navigate("/Signpage")
+
+    //       }).catch((error) => {
+    //           const errorCode = error.code;
+    //           const errorMessage = error.message;
+    //           console.log(errorCode, errorMessage);
+    //           // ..
+    //       });
+
         
      
       
