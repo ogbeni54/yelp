@@ -1,12 +1,15 @@
-import {React, useState, useEffect} from 'react'
+import {React, useState, useEffect, Suspense, lazy} from 'react'
+import Loading from '../loading/Loading';
 // import './Camplogin.css'
 import Navi from '../Navigation/Navi';
 
-import Pages from '../pages/Pages';
+// import Pages from '../pages/Pages';
 import { Link } from 'react-router-dom'
 import { campData } from '../firebase/Config';
 import { collection, getDocs } from 'firebase/firestore';
 
+
+const Pages = lazy(() => delayForDemo(import('../pages/Pages')));
 
     export default function Camplogin() {
     const [data, setData] = useState(null);
@@ -69,7 +72,11 @@ import { collection, getDocs } from 'firebase/firestore';
 
 
                     {/* <CampCollage/> */}
-                    {!searches && <Pages/>}
+                    {!searches && (
+                        <Suspense fallback={<Loading/>}>
+                            <Pages />
+                        </Suspense>
+                    )}
                     
                     {searches &&  <div className="camps">
                        
@@ -112,4 +119,14 @@ import { collection, getDocs } from 'firebase/firestore';
                 </div>
         </div>
     )
+
 }
+
+
+// Add a fixed delay so you can see the loading state
+function delayForDemo(promise) {
+    return new Promise(resolve => {
+      setTimeout(resolve, 2000);
+    }).then(() => promise);
+    console.log('Dont disturb me i am working ');
+  }

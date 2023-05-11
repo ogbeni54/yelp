@@ -1,0 +1,22 @@
+.load1{
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+ .load1 p{
+    color: red;
+    font-weight: 900;
+    text-align: center;
+}
+.loaD{
+    width: 100%;
+    margin: auto;
+    position: relative;
+    animation: mymove 5s infinite;
+}
+@keyframes mymove {
+    from {top: 0px;}
+    to {top: 200px;}
+  }
+

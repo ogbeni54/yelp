@@ -1,9 +1,10 @@
 import {React, useState, useEffect} from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-// import firebase from "../firebase/Config";
+import { Link, useNavigate } from 'react-router-dom';
 import {  signOut } from "firebase/auth";
 import { auth } from '../firebase/Config';
-// import { getAuth, onAuthStateChanged } from "firebase/auth";
+// Below is used to access user details using react-firebase-hooks
+import {useAuthState} from 'react-firebase-hooks/auth'
+
 
 
 export default function Navlogin() {
@@ -17,18 +18,11 @@ export default function Navlogin() {
 
 
     const navigate = useNavigate();
+    // grabbing user details 
+    const [user] = useAuthState(auth);
 
-const [user, setUser] = useState(null);
+    console.log(user);
 
-  useEffect(() => {
-    const unsubscribe = getAuth.auth().onAuthStateChanged((user) => {
-      setUser(user);
-    });
-
-    return () => {
-      unsubscribe();
-    };
-  }, []);
  
     const handleLogout = () => {               
         signOut(auth).then(() => {
@@ -40,20 +34,6 @@ const [user, setUser] = useState(null);
         });
     }
 
-    // const auth = getAuth();
-    // onAuthStateChanged(auth, (user) => {
-    //     if (user) {
-    //         // User is signed in, see docs for a list of available properties
-    //         // https://firebase.google.com/docs/reference/js/firebase.User
-    //         const uid = user.uid;
-    //         // ...
-    //     } else {
-    //         // User is signed out
-    //         // ...
-            
-    //     }
-    // });
-// console.log(auth.currentUser);
   return (
     <div>
          {user && <div className='nava'>
