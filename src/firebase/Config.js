@@ -1,10 +1,18 @@
 // import firebase from 'firebase/app'
-import { initializeApp } from "firebase/app";
+import { initializeApp} from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from 'firebase/firestore'
-// import 'firebase/auth'
+import { getStorage } from "firebase/storage";
 
-import 'firebase/storage'
+// import { getStorage, ref, uploadBytes } from 'firebase/storage';
+
+// import firebase from 'firebase/app';
+// import 'firebase/auth';
+// import 'firebase/storage';
+
+// import 'firebase/auth'
+// import 'firebase/firestore'
+// import 'firebase/storage'
 
 
 
@@ -28,9 +36,16 @@ const app = initializeApp(firebaseConfig)
 // const projectFirestore = firebase.firestore()
 
 
+// firebase.initializeApp(firebaseConfig)
+
+// const db = firebase.firestore();
+
 export const campData = getFirestore(app)
+
 
 
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
+// export const db = getFirestore(app);
+export const storage = getStorage(app);
 export default app;
