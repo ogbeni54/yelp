@@ -75,7 +75,7 @@ export default function Signpage() {
             <form onSubmit={onSubmit}>
                  
                       <label>
-                          <span>Username:</span>
+                          <span>Email:</span>
                           <input
                               type="text"
                               onChange={(e) => setEmail(e.target.value.trim())}
