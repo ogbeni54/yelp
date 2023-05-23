@@ -89,7 +89,7 @@
     .container .contB{
       width: 100%;
       /* height: 70vh; */
-      background-image: url(' http://localhost:3000/Assets/Hero Image (Tablet and Mobile).jpg ');
+      background-image: url('../../public/Assets/Hero\ Image\ \(Tablet\ and\ Mobile\).jpg ');
       background-size: cover;
       background-repeat: no-repeat;
     }
