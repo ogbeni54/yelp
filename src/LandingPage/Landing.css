@@ -151,6 +151,11 @@
       font-size: 35px
     } */
   }
+  @media screen and (max-width: 620px){
+    .container .contB{
+      background-size: contain;
+    }
+  }
   @media screen and (max-width: 595px){
     .textyA .first{
       width: 88%;
