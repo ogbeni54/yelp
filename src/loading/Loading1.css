@@ -1,22 +1,70 @@
-.load1{
+.load1 {
     width: 100vw;
     height: 100vh;
-    
 }
 
- .load1 p{
-    color: red;
+.load1 p {
+    color: grey;
     font-weight: 900;
     text-align: center;
 }
-.loaD{
+
+.loaD {
     width: 100%;
     margin: auto;
     position: relative;
-    animation: mymove 5s infinite;
 }
-@keyframes mymove {
-    from {top: 0px;}
-    to {top: 200px;}
-  }
+
+@keyframes gearAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.gear-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gear {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    animation: gearAnimation 2s linear infinite;
+}
+
+.gear:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 90px;
+    height: 90px;
+    border: 10px solid #000;
+    border-radius: 50%;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
+    clip-path: polygon(50% 50%, 0 0, 100% 0);
+}
+
+.gear:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 90px;
+    height: 90px;
+    border: 10px solid #000;
+    border-radius: 50%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    clip-path: polygon(50% 50%, 0 100%, 100% 100%);
+    animation: gearAnimation 2s linear infinite reverse;
+}
 

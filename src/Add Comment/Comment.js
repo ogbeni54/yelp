@@ -23,6 +23,7 @@ export default function Comment() {
                               required
                           />
                       </label>
+                      <button>Add Campground</button>
                 </form>
 
                 <Link to='/'><img src='Assets/Logo.svg' alt='site logo' className='sity1' /></Link>
